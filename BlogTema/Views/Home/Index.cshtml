@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+<script src="~/Scripts/jquery-min.js"></script>
+<script>
+    function BegenBegenme(BlogID, Secim) {
+        // Sayfa Yenilemeden İşlem yapmak istiyorsam Ajax Kullanılırım.
+        $.ajax({
+            type: "POST", // Bu Kodla Veri mi Gönderilecek Verimi Çekilecek  ? POST veya GET
+            url: "/Home/LikeLike", // Hangi JsonResult'a Veri Gönderilecek.
+            data: '{BlogID: "' + BlogID + '",Secim:"' + Secim + '"}', // Gönderilecek Olan Veriler Hangileri
+            contentType: "application/json; charset=utf-8", // Gidecek Sayfa Yapısı
+            dataType: "json", // Gidecek verinin Yapısı
+            // Gelen Cevap Olumluysa Çalışacak olan kısım
+            success: function (data) {
+                $(location).attr('href', '/');
+            },
+            // Gelen Cevap Olumsuz ise Çalışacak Olan Kısım
+            failure: function (data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+<div class="main-wrapper">
+    <section class="cta-section theme-bg-light py-5">
+        <div class="container text-center">
+            <h2 class="heading">Kariyer Mimarı - Yazılım Bloğu</h2>
+        </div>
+    </section>
+    <section class="blog-list px-3 py-5 p-md-5">
+        <div class="container">
+
+            @foreach (var item in Model)
+            {
+                <div class="item mb-5">
+                    <div class="media">
+                        <img class="mr-3 img-fluid post-thumb d-none d-md-flex" src="/images/@item.Resim" alt="image">
+                        <div class="media-body">
+                            <h3 class="title mb-1"><a href="#">@item.BlogAdi</a></h3>
+                            <div class="meta mb-1">
+
+                                <span class="date">@item.Tarih.ToString("dd.MM.yyyy")</span>
+
+                                <!--Beğenme-->
+                                <span class="time" onclick="BegenBegenme(@item.ID,1)" style="color:#067415;cursor:pointer">@item.Begenme <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></span>
+
+                                <!--Beğenmeme-->
+                                <span class="time" onclick="BegenBegenme(@item.ID,0)" style="color:#a90909;cursor:pointer">@item.Begenmeme <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></span>
+
+
+
+                                <span class="comment" style="color:#044469">0 <i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+
+
+                            </div>
+                            <div class="intro">
+                                @if (item.Aciklama.Length < 300)
+                                {
+                                    @Html.Raw(item.Aciklama)
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.Aciklama.Substring(0,299) + " ...")
+                                }
+                            </div>
+                            <a class="more-link" href="/Blog/@item.ID">Daha Fazla &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+
+
+            <nav class="blog-nav nav nav-justified my-5">
+                <a class="nav-link-next nav-item nav-link rounded" href="blog-list.html">Daha Fazla<i class="arrow-next fas fa-long-arrow-alt-right"></i></a>
+            </nav>
+
+        </div>
+    </section>
+
+    <footer class="footer text-center py-2 theme-bg-dark">
+
+        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="#" target="_blank">Kariyer Mımarı</a> for developers</small>
+
+    </footer>
+
+</div>
+

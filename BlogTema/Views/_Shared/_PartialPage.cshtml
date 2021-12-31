@@ -1,0 +1,43 @@
+﻿@foreach (var item in Model)
+{
+
+    <header class="header text-center">
+        <h1 class="blog-name pt-lg-4 mb-0"><a href="index.html">@item.BloggerAdi</a></h1>
+
+        <nav class="navbar navbar-expand-lg navbar-dark">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navigation" class="collapse navbar-collapse flex-column">
+                <div class="profile-section pt-3 pt-lg-0">
+                    <img class="profile-image mb-3 rounded-circle mx-auto" src="/assets/images/profile.png" alt="image">
+
+                    <div class="bio mb-3">
+                        @item.KisaAciklama<br><a href="/Hakkimda">
+                            Daha Fazla Bilgi
+                        </a>
+                    </div><!--//bio-->
+
+                    <hr>
+                </div><!--//profile-section-->
+
+                <ul class="navbar-nav flex-column text-left">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Anasayfa <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Tüm Bloglar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Hakkimda">Hakkımda</a>
+                    </li>
+                </ul>
+
+                <div class="my-2 my-md-3">
+                    <a class="btn btn-primary" href="#" target="_blank">İletişime Geç</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+}

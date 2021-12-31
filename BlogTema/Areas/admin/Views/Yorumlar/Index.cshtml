@@ -1,0 +1,45 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" style="margin-top:10%;">
+        <a href="/admin/Default/Insert" class="btn btn-primary" style="margin-bottom:15px;">Yeni Blog Ekle</a>
+        <a href="/admin/Yorumlar" class="btn btn-primary" style="margin-bottom:15px;">Blog Yorumları</a>
+        <a href="/admin/Hakkimizda" class="btn btn-primary" style="margin-bottom:15px;">Ayarlar</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Yorum Yapan</td>
+                    <td>Durumu</td>
+                    <td>İşlemler</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.YorumYapan</td>
+                        <td>@Html.Raw((item.Onay == true) ? "Aktif" : "Pasif")</td>
+                        <td>
+                            <a href="/admin/Yorumlar/yorumdetay/@item.ID" class="btn btn-primary">Düzenle</a>
+                            <a href="/admin/Yorumlar/Delete?ID=@item.ID" class="btn btn-danger">SİL</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+</html>
