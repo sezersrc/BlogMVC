@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" style="margin-top:10%;">
+        <a href="/admin/Default/Insert" class="btn btn-primary" style="margin-bottom:15px;">Yeni Blog Ekle</a>
+        <a href="/admin/Yorumlar" class="btn btn-primary" style="margin-bottom:15px;">Blog Yorumları</a>
+        <a href="/admin/Hakkimizda" class="btn btn-primary" style="margin-bottom:15px;">Ayarlar</a>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>Blog Adı</td>
+                    <td>Okunma</td>
+                    <td>Beğenme</td>
+                    <td>Beğenmeme</td>
+                    <td>İşlemler</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.BlogAdi</td>
+                        <td>@item.Okunma</td>
+                        <td>@item.Begenme</td>
+                        <td>@item.Begenmeme</td>
+                        <td>
+                            <a href="/admin/Default/Update/@item.ID" class="btn btn-primary">Düzenle</a>
+                            <a href="/admin/Default/Delete?ID=@item.ID" class="btn btn-danger">SİL</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+
+    </div>
+</body>
+</html>

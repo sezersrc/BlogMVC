@@ -1,0 +1,64 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container" style="margin-top:10%;">
+        <a href="/admin/Default/Insert" class="btn btn-primary" style="margin-bottom:15px;">Yeni Blog Ekle</a>
+        <a href="/admin/Yorumlar" class="btn btn-primary" style="margin-bottom:15px;">Blog Yorumları</a>
+        <a href="/admin/Hakkimizda" class="btn btn-primary" style="margin-bottom:15px;">Ayarlar</a>
+
+        @using (Html.BeginForm())
+        {
+            foreach (var item in Model)
+            {
+
+                <h1 style="text-align:center;display:block;font-weight:bold;margin-bottom:25px;">Sistem Ayarları</h1>
+
+                <input type="text" class="form-control" name="BloggerAdi" style="margin-bottom:10px;" value="@item.BloggerAdi" />
+
+                <input type="text" class="form-control" name="KisaAciklama" style="margin-bottom:10px;" value="@item.KisaAciklama" />
+
+                <textarea type="text" class="form-control" name="Aciklama" style="margin-bottom:10px;height:150px"> @item.Aciklama</textarea>
+
+                <input type="text" class="form-control" name="twitter" style="margin-bottom:10px;" placeholder="Twitter" value="@item.twitter" />
+
+
+                <input type="text" class="form-control" name="linkedin" style="margin-bottom:10px;" placeholder="linkedin" value="@item.linkedin" />
+
+
+                <input type="text" class="form-control" name="facebook" style="margin-bottom:10px;" placeholder="facebook" value="@item.facebook" />
+
+
+                <input type="text" class="form-control" name="stackoverflow" style="margin-bottom:10px;" placeholder="stackoverflow" value="@item.stackoverflow" />
+
+
+                <input type="text" class="form-control" name="Yotube" style="margin-bottom:10px;" placeholder="Yotube" value="@item.Yotube" />
+
+
+                <input type="text" class="form-control" name="Sifre" style="margin-bottom:10px;" placeholder="Sifre" value="@item.Sifre" />
+
+                <button type="submit" class="btn btn-danger form-control" style="margin-top:15px;margin-bottom:35PX;"> Veriyi Güncelle</button>
+
+                if (TempData["data"] != null)
+                {
+                    <div class="col-md-12" style="margin-top:35px;margin-bottom:35PX;">
+                        @Html.Raw(TempData["data"])
+                    </div>
+                }
+            }
+        }
+
+
+    </div>
+</body>
+</html>

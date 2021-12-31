@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog Template">
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="/assets/css/theme-1.css">
+
+</head>
+<body>
+
+
+      @Html.Action("partialGetir", "Home")
+
+    <div>
+        @RenderBody()
+    </div>
+
+
+
+
+    <!-- Javascript -->
+    <script src="/assets/plugins/jquery-3.3.1.min.js"></script>
+    <script src="/assets/plugins/popper.min.js"></script>
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Style Switcher (REMOVE ON YOUR PRODUCTION SITE) -->
+    <script src="/assets/js/demo/style-switcher.js"></script>
+</body>
+</html>

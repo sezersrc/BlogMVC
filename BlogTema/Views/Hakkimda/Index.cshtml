@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_Shared/_LayoutPage.cshtml";
+}
+<script src="~/Scripts/jquery-min.js"></script>
+<div class="main-wrapper">
+    <section class="cta-section theme-bg-light py-5">
+        <div class="container text-center">
+            @foreach (var item in Model)
+            {
+                <h2 class="heading">@item.BloggerAdi - Yazılım Bloğu</h2>
+            }
+            </div>
+    </section>
+    <section class="blog-list px-3 py-5 p-md-5">
+        <div class="container">
+
+            @foreach (var item in Model)
+            {
+                <div class="item mb-5">
+                    <div class="media">
+                        <div class="media-body">
+                            <div class="intro">@item.Aciklama</div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+    </section>
+
+
+
+
+    <footer class="footer text-center py-2 theme-bg-dark">
+
+        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <small class="copyright">Designed with <i class="fas fa-heart" style="color: #fb866a;"></i> by <a href="#" target="_blank">Kariyer Mımarı</a> for developers</small>
+
+    </footer>
+
+</div>
+

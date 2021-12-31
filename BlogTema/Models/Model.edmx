@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BlogTemplateModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBLAyarlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BloggerAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="KisaAciklama" Type="nvarchar" MaxLength="250" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="twitter" Type="nvarchar" MaxLength="50" />
+          <Property Name="linkedin" Type="nvarchar" MaxLength="50" />
+          <Property Name="facebook" Type="nvarchar" MaxLength="50" />
+          <Property Name="stackoverflow" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yotube" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLBlog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Okunma" Type="int" />
+          <Property Name="Begenme" Type="int" />
+          <Property Name="Begenmeme" Type="int" />
+          <Property Name="Resim" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBLTiklama">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ipadres" Type="nvarchar" MaxLength="30" />
+          <Property Name="BlogID" Type="int" />
+          <Property Name="durumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="TBLYorumlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogID" Type="int" />
+          <Property Name="YorumYapan" Type="nvarchar" MaxLength="50" />
+          <Property Name="Yorum" Type="nvarchar" MaxLength="350" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="Onay" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="BlogTemplateModelStoreContainer">
+          <EntitySet Name="TBLAyarlar" EntityType="Self.TBLAyarlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLBlog" EntityType="Self.TBLBlog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLTiklama" EntityType="Self.TBLTiklama" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBLYorumlar" EntityType="Self.TBLYorumlar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BlogTemplateModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="BlogTemplateEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="TBLAyarlar" EntityType="BlogTemplateModel.TBLAyarlar" />
+          <EntitySet Name="TBLBlog" EntityType="BlogTemplateModel.TBLBlog" />
+          <EntitySet Name="TBLTiklama" EntityType="BlogTemplateModel.TBLTiklama" />
+          <EntitySet Name="TBLYorumlar" EntityType="BlogTemplateModel.TBLYorumlar" />
+        </EntityContainer>
+        <EntityType Name="TBLAyarlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BloggerAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KisaAciklama" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="twitter" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="linkedin" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="facebook" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="stackoverflow" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yotube" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLBlog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Okunma" Type="Int32" />
+          <Property Name="Begenme" Type="Int32" />
+          <Property Name="Begenmeme" Type="Int32" />
+          <Property Name="Resim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBLTiklama">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ipadres" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="BlogID" Type="Int32" />
+          <Property Name="durumu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="TBLYorumlar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogID" Type="Int32" />
+          <Property Name="YorumYapan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Yorum" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="Onay" Type="Boolean" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BlogTemplateModelStoreContainer" CdmEntityContainer="BlogTemplateEntities" >
+          <EntitySetMapping Name="TBLAyarlar">
+            <EntityTypeMapping TypeName="BlogTemplateModel.TBLAyarlar">
+              <MappingFragment StoreEntitySet="TBLAyarlar">
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Yotube" ColumnName="Yotube" />
+                <ScalarProperty Name="stackoverflow" ColumnName="stackoverflow" />
+                <ScalarProperty Name="facebook" ColumnName="facebook" />
+                <ScalarProperty Name="linkedin" ColumnName="linkedin" />
+                <ScalarProperty Name="twitter" ColumnName="twitter" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="KisaAciklama" ColumnName="KisaAciklama" />
+                <ScalarProperty Name="BloggerAdi" ColumnName="BloggerAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLBlog">
+            <EntityTypeMapping TypeName="BlogTemplateModel.TBLBlog">
+              <MappingFragment StoreEntitySet="TBLBlog">
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Begenmeme" ColumnName="Begenmeme" />
+                <ScalarProperty Name="Begenme" ColumnName="Begenme" />
+                <ScalarProperty Name="Okunma" ColumnName="Okunma" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="BlogAdi" ColumnName="BlogAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLTiklama">
+            <EntityTypeMapping TypeName="BlogTemplateModel.TBLTiklama">
+              <MappingFragment StoreEntitySet="TBLTiklama">
+                <ScalarProperty Name="durumu" ColumnName="durumu" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="ipadres" ColumnName="ipadres" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBLYorumlar">
+            <EntityTypeMapping TypeName="BlogTemplateModel.TBLYorumlar">
+              <MappingFragment StoreEntitySet="TBLYorumlar">
+                <ScalarProperty Name="Onay" ColumnName="Onay" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Yorum" ColumnName="Yorum" />
+                <ScalarProperty Name="YorumYapan" ColumnName="YorumYapan" />
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

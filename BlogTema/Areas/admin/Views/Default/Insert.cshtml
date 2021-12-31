@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Areas/admin/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/jquery-min.js"></script>
+</head>
+<body>
+    <div class="container" style="margin-top:10%;">
+        <a href="/admin/Default" class="btn btn-primary" style="margin-bottom:15px;">ANASAYFA</a>
+
+        @using (Html.BeginForm("Insert", "Default", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+
+            <h1 style="text-align:center;display:block;font-weight:bold;margin-bottom:25px;">BLOG EKLEME</h1>
+
+            <input type="file" class="form-control" name="Resim" style="margin-bottom:10px;" />
+            <input type="text" class="form-control" name="BlogAdi" placeholder="Blog Adı" style="margin-bottom:10px;" />
+
+            <textarea type="text" class="form-control" name="Aciklama" placeholder="Blog Açıklama" style="margin-bottom:10px;"> </textarea>
+
+            <script>
+                var editor = CKEDITOR.instances['Aciklama']; // Hangi inputta kullanılacaksa Onun namesi yazılır
+                if (editor) { editor.destroy(true); }
+                CKEDITOR.replace('Aciklama', {
+                    enterMode: CKEDITOR.ENTER_BR,
+                });
+            </script>
+
+            <button type="submit" class="btn btn-danger form-control" style="margin-top:15px;"> Veriyi Ekle</button>
+
+            if (TempData["data"] != null)
+            {
+                <div class="col-md-12" style="margin-top:35px;">
+                    @Html.Raw(TempData["data"])
+                </div>
+            }
+        }
+
+
+    </div>
+</body>
+</html>
