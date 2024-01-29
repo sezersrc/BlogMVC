@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -56,8 +57,8 @@ namespace BlogTema.Areas.admin.Controllers
                     b.Tarih = DateTime.Now;
                     b.Okunma = 0;
                     b.BlogAdi = Request.Form["BlogAdi"];
-                    db.TBLBlog.Add(b);
-                    db.SaveChanges();
+                    db.TBLBlog.AddOrUpdate(b);
+                    //db.();
                     TempData["data"] = "<div class=\"alert alert-success\" style=\"margin-top:35px; text - align:center\">Data Yüklendi.</div>";
                 }
 
